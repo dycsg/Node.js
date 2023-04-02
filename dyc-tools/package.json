@@ -1,0 +1,12 @@
+{
+    "name": "dyc-tools",
+    "version": "1.0.0",
+    "main": "index.js",
+    "description": "我是简短的描述信息",
+    "keywords":[
+        "我是搜索关键字",
+        "dyc",
+        "dyc-tools"
+    ],
+    "license": "ISC"
+}

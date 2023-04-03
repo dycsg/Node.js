@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/jquery/3.6.4/jquery.min.js"></script>
+    <script src="/5-Express/ZY/jquery.min.js"></script>
+</head>
+
+<body>
+    <button id="btnGET">GET</button>
+    <button id="btnPOST">POST</button>
+    <button id="btnDELETE">DELETE</button>
+
+    <script>
+
+        // 报错：Access-Control-Allow-Origin  就是有跨域问题 端口号 域名不同就会有跨域问题 
+        // 可以使用 cors解决             而jsonp 只支持get请求不支持post请求
+        // 使用命令 npm i cors
+        // 使用 require('cors')导入cors
+        // 使用app.use(cors());  使它成为全局可用的中间件 
+
+        $(function () {
+            // 测试get接口
+            $('#btnGET').on('click', function () {
+                // 发起ajax请求
+                $.ajax({
+                    type: 'GET',
+                    url: 'http://127.0.0.1:8000/api/get',
+                    data: { name: 'zs', age: 20 },
+                    // 回调函数
+                    success: function (res) {
+                        console.log(res);
+                    }
+                })
+            })
+
+            // 测试post接口
+            $('#btnPOST').on('click', function () {
+                $.ajax({
+                    type: 'POST',
+                    url: 'http://127.0.0.1:8000/api/post',
+                    data: { bookname: '金瓶梅', author: 'ds' },
+                    success: function (res) {
+                        console.log(res);
+                    }
+                })
+            })
+
+
+            // 预检请求   预检请求会发生两次请求 只有option请求成功 才会发起真正的请求
+            $('#btnDELETE').on('click', function () {
+                $.ajax({
+                    type: 'DELETE',
+                    url: 'http://127.0.0.1:8000/api/delete',
+                    success: function (res) {
+                        console.log(res);
+                    }
+                })
+            })
+        })
+
+
+    </script>
+</body>
+
+</html>

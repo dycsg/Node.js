@@ -1,0 +1,2 @@
+1初始化项目 npm init -y
+npm i express@4.17.1

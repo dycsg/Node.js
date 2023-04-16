@@ -1,2 +1,8 @@
 1初始化项目 npm init -y
-npm i express@4.17.1
+安装包：npm i express@4.17.1
+
+配置跨域cors
+安装包：npm i cors@2.8.5
+
+router文件夹存放路由模块
+router_handler文件夹存放路由处理函数模块
